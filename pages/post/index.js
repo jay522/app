@@ -2,8 +2,6 @@ import { Stack,Box, Grid, Container, Card, CardHeader, CardActionArea, CardMedia
 import React, { useState, useEffect } from "react";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import PhoneIcon from '@mui/icons-material/Phone';
 import axios from 'axios'
 import Link from 'next/link';
 import { grey } from "@mui/material/colors";
@@ -32,7 +30,7 @@ const style = {
 
 }
 
-const CallGirls = ({data}) => {
+const Post = ({data}) => {
   // console.log(data)
   // let data = []
   const [fav, setFav] = useState([""])
@@ -61,32 +59,6 @@ const CallGirls = ({data}) => {
     }
   }, []);
   // console.log(fav)
-  const fnInfo = async (msg) => {
-    var cp = 0;var cw = 0;
-    axios({
-      method: 'GET', url: `${BASE_URL}/onInfo`, headers: {
-        'Access-Control-Allow-Origin': '*', "Accept": "application/json",
-        "Content-Type": "application/json",
-      }
-    })
-      .then(async(res)=> {
-        if(msg==="p"){cp = res.data[0].cp + 1; cw = res.data[0].cw}
-        else if(msg==="w"){cp = res.data[0].cp; cw = res.data[0].cw + 1}
-        console.log(cp, " & ",cw)
-        const resp = await fetch(`${BASE_URL}/onInfo`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            cp, cw
-          })
-        })
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    }
   return (
     <Container className={style.root} maxWidth>
       <Grid container mt={0.1} spacing={3}>
@@ -102,7 +74,7 @@ const CallGirls = ({data}) => {
                       onChange={(e) => handleFav(e, _id)} checked={fav.includes(_id)} />}
                   />
                   <CardActionArea>
-                    <Link href={`callgirls/${_id}`}>
+                    <Link href={`post/${_id}`}>
                       <Grid container>
                         <Grid xs={6}>
                           <CardMedia component="img" sx={style.Media}
@@ -113,8 +85,6 @@ const CallGirls = ({data}) => {
                             <Typography variant="subtitle2">{head}</Typography>
                             <Box mb={2}>
                               <Typography sx={style.hl} variant="h6">{loc}</Typography>
-                              <Typography sx={style.hl} variant="h6">1 Hour 15000</Typography>
-                              <Typography sx={style.hl} variant="h6">2 Hours 20000</Typography>
                             </Box>
                           </CardContent>
                         </Grid>
@@ -127,36 +97,16 @@ const CallGirls = ({data}) => {
           })
         }
       </Grid>
-      <Stack direction="row" sx={{
-        position: "sticky",
-        bottom: 52
-      }}
-        spacing={2} mb={1} mt={1}>
-
-        <Button size='large' variant="contained" color="primary" href="tel:910000000000" onClick={()=>fnInfo("p")}>  <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-        >
-          <PhoneIcon />
-        </IconButton> Call Now</Button>
-        <Button size='large' variant="contained" color="success" href="https://wa.me/910000000000" target={'_blank'} onClick={()=>fnInfo("w")}> <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-        >
-          <WhatsAppIcon />
-        </IconButton>WhatsApp</Button>
-      </Stack>
       <Details />
     </Container >
   )
 
 }
-export default CallGirls;
+export default Post;
 
 export const getServerSideProps = async () => {
-  const res = await fetch(`${BASE_URL}/callgirls`);
+  const res = await fetch(`${BASE_URL}/post`);
+  // const res = await fetch(`https://server-uyli.onrender.com/post`);
   const data = await res.json();
   // console.log(data)
   return {

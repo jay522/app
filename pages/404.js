@@ -5,11 +5,11 @@ const Errorpage = () => {
   const router = useRouter();
 
   const handleInput = () => {
-    router.push("/callgirls");
+    router.push("/post");
   };
 
   useEffect(() => {
-    router.push("/callgirls");
+    router.push("/post");
   }, []);
 
   return (

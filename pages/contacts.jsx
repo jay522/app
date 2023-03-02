@@ -36,7 +36,7 @@ const Contacts = () => {
         e.preventDefault();
         console.log(JSON.stringify(data))
         const { name, email, phone, subject, message } = data
-        const res = await fetch(`${BASE_URL}/onUser`, {
+        const res = await fetch(`${BASE_URL}/contactus`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -77,7 +77,7 @@ const Horizontal = () => {
                       onChange={(e) => handleFav(e, _id)} checked={fav.includes(_id)} />}
                   />
                   <CardActionArea>
-                    <Link href={`/callgirls/${_id}`}>
+                    <Link href={`/post/${_id}`}>
                     <Grid container>
                       <Grid xs={6}>
                         {/* <CardMedia component={Image} sx={style.Media}image={img} /> */}

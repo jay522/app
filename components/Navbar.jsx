@@ -30,12 +30,12 @@ const Navbar = () => {
             <CssBaseline />
             <SwipeableDrawer open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} >
                 <List disablePadding sx={styles.drawer}>
-                    <Typography variant='h5' ml={2}  sx={{ flexGrow: 1,textDecoration:"none" }}><Link href="/callgirls">PriyaEscorts</Link></Typography>
-                    <ListItem divider onClick={() => setOpen(false)}><Link href="/callgirls">Home</Link></ListItem>
-                    <ListItem divider onClick={() => setOpen(false)}><Link href="/callgirls">CallGirls</Link></ListItem>
+                    <Typography variant='h5' ml={2}  sx={{ flexGrow: 1,textDecoration:"none" }}><Link href="/post">PriyaEscorts</Link></Typography>
+                    <ListItem divider onClick={() => setOpen(false)}><Link href="/post">Home</Link></ListItem>
+                    <ListItem divider onClick={() => setOpen(false)}><Link href="/post">CallGirls</Link></ListItem>
                     <ListItem divider onClick={() => setOpen(false)}><Link href="/cityguide">City Guide</Link></ListItem>
                     <ListItem divider onClick={() => setOpen(false)}><Link href="/contacts">Contacts</Link></ListItem>
-                    <ListItem divider onClick={() => setOpen(false)}><Link href="/post">Post</Link></ListItem>
+                    <ListItem divider onClick={() => setOpen(false)}><Link href="/post">post</Link></ListItem>
                 </List>
             </SwipeableDrawer>
             <AppBar sx={styles.navCol} position='static' >
@@ -45,9 +45,9 @@ const Navbar = () => {
                         onClick={() => setOpen(true)}>
                         <ListIcon />
                     </IconButton>
-                    <Typography variant='h6' sx={styles.title} ><Link href="/callgirls">PriyaEscorts</Link></Typography>
+                    <Typography variant='h6' sx={styles.title} ><Link href="/post">PriyaEscorts</Link></Typography>
                     <Button  sx={styles.col} ><Link href="/myfav"><Checkbox checkedIcon={<FavoriteIcon sx={{color:"red"}} />} checked={true}  /></Link></Button>
-                    <Button  sx={styles.col} ><Link href="/callgirls">CallGirls</Link></Button>
+                    <Button  sx={styles.col} ><Link href="/post">CallGirls</Link></Button>
                 </Toolbar>
             </AppBar>
         </div>

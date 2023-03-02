@@ -29,7 +29,8 @@ const style = {
   }
 }
 export const getServerSidePaths = async () => {
-  const res = await fetch( `${BASE_URL}/callgirls`);
+  const res = await fetch( `${BASE_URL}/post`);
+  // const res = await fetch(`https://server-uyli.onrender.com/post`);
   const data = await res.json();
   const paths = data.map(curElem => ({
       params: {id: curElem._id}
@@ -41,7 +42,7 @@ export const getServerSidePaths = async () => {
 };
 export const getServerSideProps = async (context) => {
   const id = context.params.id;
-  const res = await fetch(`${BASE_URL}/callgirls/${id}`);
+  const res = await fetch(`${BASE_URL}/post/${id}`);
   const data = await res.json();
 
   return {
