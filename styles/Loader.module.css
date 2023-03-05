@@ -1,0 +1,32 @@
+.loaderContainer{
+    display:flex;
+    position:absolute;
+    top:1%;
+    left:42%;
+    height: 100vh;
+}
+.loaderContainer img{
+    display:inline-block;
+    margin: auto;
+    width: 100px;
+}
+.loaderContainer div{
+   display:flex;
+    position:absolute;
+     bottom:39%;
+     left: 21%;
+}
+@media only screen and (min-width: 768px) {
+    .loaderContainer img{
+        display:inline-block;
+        margin: auto;
+        width: 200px;
+    }
+    .loaderContainer div{
+       display:flex;
+        position:absolute;
+         bottom: 32%;
+         left: 30%;
+         font-size: 1.6rem;
+    }
+}

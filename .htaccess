@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+DirectoryIndex disabled
+RewriteEngine On
+RewriteRule ^(.*)$ http://localhost:3000/$1 [P,L]
+RewriteRule ^$ http://localhost:3000/ [P,L]
+</IfModule>
